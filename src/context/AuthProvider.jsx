@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import api from '../api/axiosConfig.js';  // Importamos Axios
 
 const AuthContext = createContext();
 
@@ -8,14 +9,18 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);  // Añadimos un estado para manejar el tiempo de carga
 
   // Función para iniciar sesión
-  const login = (username, password) => {
-    if (username === 'admin' && password === '1234') {
-      const token = 'fake-token';  // Simulamos un token
-      setUser({ username, token });  // Guardamos el usuario y el token
+  const login = async (username, password) => {
+    console.log('Enviando datos al backend:', { username, password });  // Log para verificar qué se está enviando
+    try {
+      const response = await api.post('/auth/login', { username, password });  // Usamos Axios para el login
+      const { token } = response.data;  // Extraemos el token de la respuesta
+      setUser({ token });
       localStorage.setItem('token', token);  // Guardamos el token en localStorage
       return true;
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      return false;
     }
-    return false;
   };
 
   // Función para cerrar sesión
@@ -28,8 +33,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      // Simulamos que el usuario es 'admin' si el token está presente
-      setUser({ username: 'admin', token });
+      setUser({ username: 'UsuarioAutenticado', token });  // Simulamos un usuario autenticado
     }
     setLoading(false);  // Ya hemos terminado de verificar
   }, []);  // Este useEffect se ejecuta solo una vez al montar el componente

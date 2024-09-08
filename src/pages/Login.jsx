@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';  // useNavigate también
 import LoginForm from '../components/LoginForm'; // Importamos el form Login
 import useAuth from '../context/useAuth';  // Cambiamos la importación
-import '../styles/Login.css';  // Importamos los estilos específicos para Login
 import loginImage from '../assets/Login-img.jpg'; // Importamos la imagen
 import LogoImage from '../assets/logo.png'; // Importamos la imagen
+import '../styles/Login.css';  // Importamos los estilos específicos para Login
 
 
 const Login = () => {
@@ -13,10 +13,10 @@ const Login = () => {
   const { login } = useAuth();  // Usamos el hook de autenticación
   const navigate = useNavigate();
 
-  const handleLogin = (username, password) => {
-    const isAuthenticated = login(username, password);
+  const handleLogin = async (username, password) => {
+    const isAuthenticated = await login(username, password);  // Esperamos a que se resuelva la solicitud de login
     if (isAuthenticated) {
-      navigate('/dashboard');
+      navigate('/dashboard');  // Redirigimos al dashboard si el login fue exitoso
     } else {
       setError('Usuario o contraseña incorrectos');
     }
