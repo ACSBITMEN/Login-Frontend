@@ -1,0 +1,195 @@
+/* Estilos para la página de login */
+#login-page {
+  background-color: #242424;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor general del login */
+#login-page .container-login {
+  background: url(../assets/bg-login-img.jpg); /* Fondo con imagen */
+  background-size: cover;
+  width: 42rem;
+  max-width: 50rem;
+  height: 23rem;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 48px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* Contenedor de la imagen */
+#login-page .container-img {
+  width: 40%;
+  height: 100%;
+  margin-right: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+}
+
+#login-page .container-img img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+#login-page .container-img .logo-login {
+  position: absolute;
+  width: 4rem;
+  top: 10%;
+  right: 4rem;
+  transform: translateY(0%) translateX(100%);
+  transition: transform 0s linear;
+  opacity: 0;
+}
+@keyframes fly-animation {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-320%);
+    opacity: 0;
+  }
+}
+
+.logo-login.fly {
+  animation: fly-animation 10s linear;
+}
+
+/* Contenedor del formulario */
+#login-page .container-form {
+  width: 60%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+
+#login-page .container-form h2 {
+  color: #f2f2f2;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.8em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/* Estilos del formulario */
+#login-page .container-form form {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Estilos del formulario */
+#login-page p {
+  position: fixed;
+  color: #ffc2c2;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 0;
+  margin-top: 27rem;
+}
+
+/* Estilos del botón */
+#login-page .container-form button {
+  background-color: #0933df;
+  padding: 15px 0;
+  margin: 2rem 1rem;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+#login-page .container-form button:hover {
+  background-color: #001233;
+  font-size: 1.1em;
+}
+
+#login-page .container-form button:focus {
+  outline: 2px solid #0933df;
+}
+
+
+
+
+
+
+
+/* Estilos para los inputs */
+#login-page .container-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+  padding: 0 1rem;
+}
+
+#login-page .label {
+  display: grid;
+  padding: 2rem 0 0.4rem 0;
+  font-size: 1em;
+  grid-template-areas: "input";
+  align-items: center;
+  align-content: center;
+  > * {
+    grid-area: input;
+  }
+}
+
+#login-page .input {
+  height: 100%;
+  min-height: 30px;
+  padding-left: 7px;
+  border-radius: 7px;
+  border-color: transparent;
+  outline: none;
+  border-bottom: 1px solid var(--color-primary);
+  font: inherit;
+  border: 1px solid #757575;
+  background-color: whitesmoke;
+  color: black;
+}
+
+#login-page .input:focus {
+  border-color: #0991df;
+}
+
+#login-page .input:focus + .span,
+#login-page .input:not(:placeholder-shown) + .span {
+  color: var(--color-primary);
+  transform: translate(0, -158%) scale(0.9);
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Efecto flotante para el placeholder */
+#login-page .span {
+  transform-origin: left;
+  transition: transform 0.3s, color 0.3s;
+  margin-left: 9px;
+}
