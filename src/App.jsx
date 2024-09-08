@@ -7,7 +7,13 @@ import PropTypes from 'prop-types';
 
 // Componente para proteger rutas privadas (solo para usuarios autenticados)
 const PrivateRoute = ({ children }) => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    // Mientras está cargando, podemos mostrar un mensaje de espera o simplemente devolver null
+    return <div>Cargando...</div>;  // O puedes poner un spinner aquí si prefieres
+  }
+
   return user ? children : <Navigate to="/login" />;
 };
 
