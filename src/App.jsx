@@ -1,40 +1,15 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import { AuthProvider } from './context/AuthProvider';  // Cambiamos la importación
-import useAuth from './context/useAuth';  // Cambiamos la importación
-import PropTypes from 'prop-types';
-
-// Componente para proteger rutas privadas (solo para usuarios autenticados)
-const PrivateRoute = ({ children }) => {
-  const { user, loading } = useAuth();
-
-  if (loading) {
-    // Mientras está cargando, podemos mostrar un mensaje de espera o simplemente devolver null
-    return <div>Cargando...</div>;  // O puedes poner un spinner aquí si prefieres
-  }
-
-  return user ? children : <Navigate to="/login" />;
-};
+import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './context/AuthProvider';
+import AppRoutes from './routes/Routes'; // Importamos las rutas principales
 
 function App() {
   return (
     <AuthProvider>
       <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-        </Routes>
+        <AppRoutes /> {/* Definimos todas las rutas en un solo lugar */}
       </Router>
     </AuthProvider>
   );
 }
-
-// Validamos que la prop 'children' esté presente y sea de tipo node
-PrivateRoute.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-
 
 export default App;

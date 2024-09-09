@@ -9,6 +9,18 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);  // Añadimos un estado para manejar el tiempo de carga
 
+  // Verificamos si hay un token almacenado en localStorage al cargar la app
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = decodeToken(token);  // Decodificamos el token
+      if (decoded) {
+        setUser({ ...decoded, token });
+      }
+    }
+    setLoading(false);  // Ya hemos terminado de verificar
+  }, []);  // Este useEffect se ejecuta solo una vez al montar el componente
+
   // Función para iniciar sesión
   const login = async (username, password) => {
     try {
@@ -34,18 +46,6 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem('token');  // Eliminamos el token de localStorage
   };
-
-  // Verificamos si hay un token almacenado en localStorage al cargar la app
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const decoded = decodeToken(token);  // Decodificamos el token
-      if (decoded) {
-        setUser({ ...decoded, token });
-      }
-    }
-    setLoading(false);  // Ya hemos terminado de verificar
-  }, []);  // Este useEffect se ejecuta solo una vez al montar el componente
 
   return (
     <AuthContext.Provider value={{ user, login, logout, loading }}>
