@@ -1,0 +1,1 @@
+// componente de rutas para proteger las rutas PRIVADAS

@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import api from '../api/axiosConfig.js';  // Importamos Axios
+import { decodeToken } from '../utils/jwtUtils';  // Importamos la función para decodificar el token
 
 const AuthContext = createContext();
 
@@ -10,13 +11,18 @@ export const AuthProvider = ({ children }) => {
 
   // Función para iniciar sesión
   const login = async (username, password) => {
-    console.log('Enviando datos al backend:', { username, password });  // Log para verificar qué se está enviando
     try {
       const response = await api.post('/auth/login', { username, password });  // Usamos Axios para el login
       const { token } = response.data;  // Extraemos el token de la respuesta
-      setUser({ token });
-      localStorage.setItem('token', token);  // Guardamos el token en localStorage
-      return true;
+      const decoded = decodeToken(token);  // Decodificamos el token para obtener id y rol
+
+      if (decoded) {
+        setUser({ ...decoded, token });  // Guardamos la info decodificada y el token
+        localStorage.setItem('token', token);
+        return true;
+      }
+
+      return false;  // En caso de que no se pueda decodificar, no hacemos login
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
       return false;
@@ -33,7 +39,10 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      setUser({ username: 'UsuarioAutenticado', token });  // Simulamos un usuario autenticado
+      const decoded = decodeToken(token);  // Decodificamos el token
+      if (decoded) {
+        setUser({ ...decoded, token });
+      }
     }
     setLoading(false);  // Ya hemos terminado de verificar
   }, []);  // Este useEffect se ejecuta solo una vez al montar el componente
