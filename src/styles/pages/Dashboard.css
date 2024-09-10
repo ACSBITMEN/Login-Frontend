@@ -1,7 +1,7 @@
 /* Contenedor principal del dashboard */
 .dashboard-container {
   display: flex;
-  margin-left: 65px; /* Espacio para el menú contraído */
+  margin-left: 70px; /* Espacio para el menú contraído */
   transition: margin-left 0.3s ease;
 }
 

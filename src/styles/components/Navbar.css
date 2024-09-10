@@ -9,7 +9,7 @@
   bottom: 0;
   height: 100%;
   left: 0;
-  width: 65px; /* Contraído */
+  width: 70px; /* Contraído */
   overflow: hidden;
   transition: width .05s linear;
   z-index: 1000;
@@ -30,18 +30,20 @@
   
 }
 
+#navBar ul:nth-child(2) li:hover {
+  background-color: #4d1fa3; /* Fondo cuando se pasa el ratón por encima */
+}
+
 /* Estilo de los links activos */
 #navBar ul li.active {
   background-color: #297fd4; /* Color de fondo del ítem activo */
   color: white;
-  margin-left: 7px;
+  margin-left: 1rem;
+  padding-left: .1rem;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 }
 
-#navBar ul:nth-child(2) li:hover {
-  background-color: #4d1fa3; /* Fondo cuando se pasa el ratón por encima */
-}
 
 /* Estilo del logo */
 #navBar .Logo li {
@@ -67,7 +69,7 @@
 
 /* Estilo de los íconos del navbar */
 #navBar ul li svg {
-  margin: 0 .5rem 0 1rem;
+  margin: 0 .5rem 0 .5rem;
   width: 40px;
   height: 40px;
 }
@@ -75,13 +77,25 @@
 /* Items opciones navegacion */
 #navBar .menu-nav li {
   cursor: pointer;
-  padding-left: 2px;
+  padding-left: .5rem;
   margin: 5px 0;
 }
+
+#navBar .menu-nav li svg {
+  margin: 0 .5rem 0 .5rem;
+  width: 25%;
+  height: 40px;
+}
+
+#navBar .menu-nav li p {
+  width: 75%;
+}
+
 
 /* Items configuraciones */
 #navBar .config li {
   margin-bottom: 1rem;
+  padding-left: .4rem;
   display: flex;
 }
 
