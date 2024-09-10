@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm'; // Importamos el form Login
 import useAuth from '../context/useAuth';  // Cambiamos la importación
 import loginImage from '../assets/Login-img.jpg'; // Importamos la imagen
 import LogoImage from '../assets/logo.png'; // Importamos la imagen
-import '../styles/Login.css';  // Importamos los estilos específicos para Login
+import '../styles/pages/Login.css';  // Importamos los estilos específicos para Login
 
 
 const Login = () => {

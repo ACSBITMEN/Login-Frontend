@@ -11,7 +11,7 @@
 
 /* Contenedor general del login */
 #login-page .container-login {
-  background: url(../assets/bg-login-img.jpg); /* Fondo con imagen */
+  background: url(../../assets/bg-login-img.jpg); /* Fondo con imagen */
   background-size: cover;
   width: 42rem;
   max-width: 50rem;

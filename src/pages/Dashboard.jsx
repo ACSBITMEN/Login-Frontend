@@ -1,29 +1,22 @@
-import { useNavigate } from 'react-router-dom';
-import useAuth from '../context/useAuth';  // Importamos el contexto de autenticación
+import { useState } from 'react'; // Para manejar el estado
+import { Outlet } from 'react-router-dom'; // Para renderizar las rutas hijas dentro del dashboard
+import Navbar from '../components/Navbar'; // Importamos el Navbar
+import '../styles/pages/Dashboard.css';  // Importamos los estilos
 
 const Dashboard = () => {
-  const { logout } = useAuth();  // Usamos la función de logout del contexto
-  const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false); // Estado para el menú expandido
 
-  const handleLogout = () => {
-    logout();  // Llamamos a la función logout para cerrar sesión
-    navigate('/login');  // Redirigimos al usuario al login
+  // Función para alternar el estado del menú
+  const toggleNavbar = () => {
+    setIsExpanded(!isExpanded);
   };
 
-  const { user } = useAuth();
-
   return (
-    <div>
-      <h1>Bienvenido al Dashboard</h1>
-      {user ? (
-        <div>
-          <h1>Bienvenido, Usuario con ID: {user.id}</h1>
-          <p>Tu rol es: {user.role}</p>
-        </div>
-      ) : (
-        <h1>No has iniciado sesión</h1>
-      )}
-      <button onClick={handleLogout}>Cerrar Sesión</button>
+    <div className={`dashboard-container ${isExpanded ? 'expanded' : ''}`}>
+      <Navbar onToggle={toggleNavbar} /> {/* Navbar se muestra siempre */}
+      <div className="dashboard-content">
+        <Outlet /> {/* Aquí se renderizan las secciones del dashboard */}
+      </div>
     </div>
   );
 };

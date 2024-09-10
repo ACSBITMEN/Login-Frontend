@@ -1,0 +1,23 @@
+/* Contenedor principal del dashboard */
+.dashboard-container {
+  display: flex;
+  margin-left: 65px; /* Espacio para el menú contraído */
+  transition: margin-left 0.3s ease;
+}
+
+.dashboard-container.expanded {
+  margin-left: 200px; /* Espacio adicional cuando el menú está expandido */
+}
+
+/* Contenido del dashboard */
+.dashboard-content {
+  width: 100%;
+  background-color: #252525;
+  color: #fff;
+  height: 100vh; /* Aseguramos que el contenido ocupe toda la pantalla */
+}
+
+/* Estilo para el título del dashboard */
+.dashboard-content h1 {
+  font-size: 2rem;
+}

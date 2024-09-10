@@ -1,0 +1,131 @@
+/* Estilo general del menú */
+#navBar {
+  background-color: #021526;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 65px; /* Contraído */
+  overflow: hidden;
+  transition: width .05s linear;
+  z-index: 1000;
+}
+
+#navBar:hover, #navBar.expanded {
+  width: 170px; /* Expande el menú */
+}
+
+/* Listas Generales */
+#navBar ul {
+  width: 100%;
+}
+
+/* Listas > Items Generales */
+#navBar ul li {
+  width: 100%;
+  
+}
+
+/* Estilo de los links activos */
+#navBar ul li.active {
+  background-color: #297fd4; /* Color de fondo del ítem activo */
+  color: white;
+  margin-left: 7px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#navBar ul:nth-child(2) li:hover {
+  background-color: #4d1fa3; /* Fondo cuando se pasa el ratón por encima */
+}
+
+/* Estilo del logo */
+#navBar .Logo li {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo del logo */
+#navBar .Logo li img {
+  width: 50px;
+  height: auto;
+  padding: 5px 0 0 10px;
+}
+
+#navBar .Logo li span {
+  color: #fff;
+  width: 100%;
+  margin-right: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Estilo de los íconos del navbar */
+#navBar ul li svg {
+  margin: 0 .5rem 0 1rem;
+  width: 40px;
+  height: 40px;
+}
+
+/* Items opciones navegacion */
+#navBar .menu-nav li {
+  cursor: pointer;
+  padding-left: 2px;
+  margin: 5px 0;
+}
+
+/* Items configuraciones */
+#navBar .config li {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+/* Boton Salir App */
+#navBar .config li button {
+  background-color: #021526;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover > *{
+  color: #ec5656;
+  fill: #ec5656; 
+}
+
+#navBar .config li svg {
+  margin: 0 .5rem 0 .6rem;
+}
+
+/* Otros estilos */
+
+
+#navBar ul li {
+  width: 170px;
+  padding: 4px 0;
+}
+
+
+#navBar ul li > a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  transition: all .1s linear;
+}
+
+#navBar .nav-text {
+  padding-left: 10px;
+  font-size: 1.2rem;
+}
+
