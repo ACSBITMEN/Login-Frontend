@@ -27,7 +27,7 @@
 /* Listas > Items Generales */
 #navBar ul li {
   width: 100%;
-  
+  transition: .3s;
 }
 
 #navBar ul:nth-child(2) li:hover {
@@ -37,7 +37,6 @@
 /* Estilo de los links activos */
 #navBar ul li.active {
   background-color: #297fd4; /* Color de fondo del ítem activo */
-  color: white;
   margin-left: 1rem;
   padding-left: .1rem;
   border-top-left-radius: 15px;
@@ -55,7 +54,7 @@
 #navBar .Logo li img {
   width: 50px;
   height: auto;
-  padding: 5px 0 0 10px;
+  padding: 5px 0 0 12px;
 }
 
 #navBar .Logo li span {
@@ -84,7 +83,7 @@
 #navBar .menu-nav li svg {
   margin: 0 .5rem 0 .5rem;
   width: 25%;
-  height: 40px;
+  height: 35px;
 }
 
 #navBar .menu-nav li p {
@@ -122,8 +121,6 @@ button:hover > *{
 }
 
 /* Otros estilos */
-
-
 #navBar ul li {
   width: 170px;
   padding: 4px 0;

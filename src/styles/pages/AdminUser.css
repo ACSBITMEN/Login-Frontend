@@ -1,0 +1,33 @@
+#container-AdminUser {
+  margin: 1rem;
+  padding: 20px;
+}
+
+#container-AdminUser h2 {
+  margin-bottom: 3rem;
+}
+
+#container-AdminUser .containerList {
+  
+}
+
+#container-AdminUser table {
+  max-width: 80rem;
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: inherit;
+}
+
+#container-AdminUser tbody tr td:nth-last-child(1) {
+  display: flex;
+}
+
+tr:hover {
+  background-color: #160f3d;
+}
+
+th {
+  background-color: #f4f4f4;
+  color: #000; 
+}
+

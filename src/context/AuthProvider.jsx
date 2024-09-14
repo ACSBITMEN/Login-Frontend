@@ -8,6 +8,9 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);  // Añadimos un estado para manejar el tiempo de carga
+  const [users, setUsers] = useState([]);  // Estado para almacenar los usuarios
+  const [loadingUsers, setLoadingUsers] = useState(false);  // Estado para manejar la carga de usuarios
+  const [errorUsers, setErrorUsers] = useState(null);  // Estado para manejar errores al obtener usuarios
 
   // Verificamos si hay un token almacenado en localStorage al cargar la app
   useEffect(() => {
@@ -20,6 +23,23 @@ export const AuthProvider = ({ children }) => {
     }
     setLoading(false);  // Ya hemos terminado de verificar
   }, []);  // Este useEffect se ejecuta solo una vez al montar el componente
+
+  // Función para obtener usuarios y almacenarlos en el contexto
+  // Ahora acepta un parámetro `forceUpdate` para forzar la actualización incluso si hay usuarios en la lista
+  const getUsers = async (forceUpdate = false) => {
+    if (users.length === 0 || forceUpdate) {  // Solo hace la solicitud si la lista está vacía o si se fuerza la actualización
+      setLoadingUsers(true);  // Mostrar el estado de carga
+      try {
+        const response = await api.get('/user');
+        setUsers(response.data);  // Almacenamos los usuarios obtenidos
+      } catch (error) {
+        setErrorUsers('Error al obtener usuarios');
+        console.error('Error al obtener usuarios:', error);
+      } finally {
+        setLoadingUsers(false);  // Terminamos la carga
+      }
+    }
+  };
 
   // Función para iniciar sesión
   const login = async (username, password) => {
@@ -48,7 +68,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        logout,
+        getUsers,
+        loading,  // Estado general de la autenticación
+        users,  // Lista de usuarios obtenidos
+        loadingUsers,  // Estado de carga de usuarios
+        errorUsers  // Error al obtener usuarios
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

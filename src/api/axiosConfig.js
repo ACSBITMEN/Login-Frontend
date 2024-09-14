@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuramos una instancia de Axios
 const api = axios.create({
-  baseURL: 'http://localhost:3000',  // Cambia esta URL según el backend que estés utilizando
+  baseURL: 'http://localhost:3000',  // URL del backend que se este usando.
 });
 
 // Interceptor para agregar el token a todas las solicitudes

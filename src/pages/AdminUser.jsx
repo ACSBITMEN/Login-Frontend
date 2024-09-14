@@ -1,9 +1,15 @@
-const AdminUser = () => {
+// src/pages/AdminUser.jsx
+import UserList from '../components/UserList';  // Importamos el componente UserList
+import '../styles/pages/AdminUser.css';  // Importamos los estilos
 
+const AdminUser = () => {
   return (
-    <div>
+    <div id="container-AdminUser">
       <h2>Administrador de usuarios</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora beatae minima ab aut. Sequi ipsam mollitia rem eligendi odit laborum.</p>
+      <div></div>
+      <div className='containerList'>
+        <UserList />  {/* Aquí consumimos el componente UserList */}
+      </div>
     </div>
   );
 };
