@@ -2,6 +2,7 @@
 
 Este es un proyecto frontend para un sistema de autenticación y gestión de usuarios (CRUD) desarrollado con React, Vite, y Axios, con la finalidad de consumir el proyecto https://github.com/ACSBITMEN/Login-Backend. Proporciona una interfaz de usuario para la autenticación (login) y la gestión de usuarios, incluyendo operaciones CRUD, accesibles solo para usuarios con rol de administrador realizando solicitudes HTTP.
 
+Visual del Login
 ![](https://raw.githubusercontent.com/ACSBITMEN/Login-Frontend/main/public/Readme-Login.gif)
 
 
