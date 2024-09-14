@@ -2,6 +2,9 @@
 
 Este es un proyecto frontend para un sistema de autenticación y gestión de usuarios (CRUD) desarrollado con React, Vite, y Axios, con la finalidad de consumir el proyecto https://github.com/ACSBITMEN/Login-Backend. Proporciona una interfaz de usuario para la autenticación (login) y la gestión de usuarios, incluyendo operaciones CRUD, accesibles solo para usuarios con rol de administrador realizando solicitudes HTTP.
 
+![](https://raw.githubusercontent.com/ACSBITMEN/Login-Frontend/main/public/Readme-Login.gif)
+
+
 ## Estructura del Proyecto
 
 El proyecto está organizado de la siguiente manera:
@@ -16,7 +19,7 @@ Esta estructura de carpetas fue elegida para mantener una clara separación de r
 - **context/**: Gestiona el estado global de la aplicación utilizando los contextos de React. Contiene AuthProvider.jsx para el manejo de la autenticación y useAuth.jsx para acceder a ese contexto de manera más sencilla en los componentes.
 - **pages/**: Alberga las vistas completas de la aplicación. Cada archivo en esta carpeta representa una página específica, como AdminUser.jsx para el CRUD de usuarios (solo accesible para administradores), Login.jsx para la página de inicio de sesión, y Dashboard.jsx para la vista principal una vez que el usuario está autenticado.
 - **routes/**: Define las rutas de la aplicación y controla la navegación. Incluye PrivateRoute.jsx para proteger las rutas que requieren autenticación y Routes.jsx para gestionar todas las rutas de la aplicación.
-- **services//**: Contiene la lógica de negocio relacionada con las peticiones HTTP al backend. Incluye userService.js para realizar operaciones como obtener, crear, actualizar y eliminar usuarios.
+- **services/**: Contiene la lógica de negocio relacionada con las peticiones HTTP al backend. Incluye userService.js para realizar operaciones como obtener, crear, actualizar y eliminar usuarios.
 - **styles/**: Agrupa todas las hojas de estilo, dividiéndolas en estilos específicos para componentes y páginas. Esto facilita el mantenimiento y la gestión de los estilos, permitiendo una separación clara entre la lógica de la aplicación y su apariencia.
 - **utils/**: Almacena funciones auxiliares y utilidades, como jwtUtils.jsx que proporciona funciones para decodificar y verificar tokens JWT, ayudando a mantener la lógica principal de los componentes más limpia y organizada.
 
