@@ -9,7 +9,7 @@
   bottom: 0;
   height: 100%;
   left: 0;
-  width: 70px; /* Contraído */
+  width: 68px; /* Contraído */
   overflow: hidden;
   transition: width .05s linear;
   z-index: 1000;
@@ -20,8 +20,9 @@
 }
 
 /* Listas Generales */
-#navBar ul {
+#navBar ul, #navBar ol {
   width: 100%;
+  padding: 0;
 }
 
 /* Listas > Items Generales */
@@ -111,7 +112,7 @@
   cursor: pointer;
 }
 
-button:hover > *{
+#navBar button:hover > *{
   color: #ec5656;
   fill: #ec5656; 
 }
