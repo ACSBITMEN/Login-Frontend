@@ -1,0 +1,91 @@
+#ContainerModal-CreateUserModal {
+  color: black;
+  background-color: rgba(0, 0, 0, 0.247);
+}
+
+#ContainerModal-CreateUserModal .modal-content {
+  color: black;
+  background: url(../../assets/BgModalUser-img.jpg); /* Fondo con imagen */
+  background-size: cover;
+}
+
+#ContainerModal-CreateUserModal .modal-content .modal-header {
+  justify-content: space-between;
+  background-color: #021526;
+}
+
+#ContainerModal-CreateUserModal .modal-content .modal-header h5 {
+  color: white;
+  margin: 0 0 0 1rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#ContainerModal-CreateUserModal .modal-content .modal-header button {
+  background-color: rgb(192, 47, 47);
+  color: white;
+  padding: 0 1rem;
+  border-radius: 5px;
+  border: 1px solid #7c1616;
+}
+
+#ContainerModal-CreateUserModal .modal-content .modal-body {
+  background-color: #384B70;
+}
+
+#ContainerModal-CreateUserModal .modal-content .modal-body form {
+  padding: 0 1rem;
+}
+
+/* src/styles/components/CreateUserModal.css */
+
+#ContainerModal-CreateUserModal .label {
+  display: grid;
+  padding: 1rem 0 0.4rem 0;
+  margin: .8rem 0.2rem;
+  font-size: 1em;
+  grid-template-areas: "input";
+  align-items: center;
+  align-content: center;
+}
+
+#ContainerModal-CreateUserModal .label > * {
+  grid-area: input;
+}
+
+#ContainerModal-CreateUserModal .input {
+  height: 100%;
+  min-height: 30px;
+  padding-left: 7px;
+  border-radius: 7px;
+  border: 1px solid gainsboro;
+  outline: none;
+  background-color: whitesmoke;
+  color: black;
+  transition: border-color 0.3s;
+}
+
+#ContainerModal-CreateUserModal .input:focus {
+  border-color: gray;
+}
+
+#ContainerModal-CreateUserModal .input:focus + .span,
+#ContainerModal-CreateUserModal .input:not(:placeholder-shown) + .span {
+  color: var(--color-primary);
+  transform: translate(0, -115%) scale(0.9);
+  font-weight: 500;
+  color: white;
+}
+
+#ContainerModal-CreateUserModal .span {
+  transform-origin: left;
+  transition: transform 0.3s, color 0.3s;
+  margin-left: 8px;
+  color: #414141;
+}
+
+/* Estilos adicionales para el modal */
+#ContainerModal-CreateUserModal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}

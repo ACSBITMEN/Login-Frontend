@@ -1,10 +1,17 @@
 #container-AdminUser {
   margin: 1rem;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
+}
+
+#container-AdminUser .alert {
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+  width: 100%;
 }
 
 #container-AdminUser h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 /* #container-AdminUser .containerList {
@@ -14,7 +21,7 @@
 .containerList {
   width: 100%;
   max-width: 80rem;
-  margin: 1rem auto 0 auto;
+  margin: 2rem auto 0 auto;
 }
 
 .containerList .opcListUser {
